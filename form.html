@@ -156,7 +156,7 @@
       <h3>R&D GURGAON <br> 20 YEARS</h3>
    <div>
   <div style="display: flex; justify-content: center;">
-  <form id="infoForm" method="POST" action="https://script.google.com/macros/s/AKfycbw2gSGQiL7CQ_OzbIL1cG7scQjEsWg8lMyllxSnXmvY9ZrB1nFo9AeEPtBvfjnhAqkE3Q/exec" style="width: 100%; max-width: 600px;">
+  <form id="infoForm" method="POST" onsubmit="return validateAndSubmit();" action="https://script.google.com/macros/s/AKfycbw2gSGQiL7CQ_OzbIL1cG7scQjEsWg8lMyllxSnXmvY9ZrB1nFo9AeEPtBvfjnhAqkE3Q/exec" style="width: 100%; max-width: 600px;">
     <div style="display: flex; gap: 10px; margin-bottom: 10px; justify-content: center;">
       <input name="FirstName MiddleName" type="text" placeholder="First Middle Name" required style="flex: 1; min-width: 100px; max-width: 100%; width: 100%; box-sizing: border-box;">
       <input name="LastName" type="text" placeholder="Last Name" required style="flex: 1;min-width: 100px; max-width: 100%; width: 100%; box-sizing: border-box;">
@@ -165,7 +165,7 @@
       <input name="Manager FirstName Middle Name" type="text" placeholder="Manager's FirstName" required style="flex: 1; min-width: 100px; max-width: 100%; width: 100%; box-sizing: border-box;">
       <input name="Manager LastName" type="text" placeholder="Manager's LastName" required style="flex: 1; min-width: 100px; max-width: 100%; width: 100%; box-sizing: border-box;">
     </div>
-    <button type="submit" onclick="showPleaseWait()" style="width: 70%;">Submit</button>
+    <button type="submit" style="width: 70%;">Submit</button>
   </form>
 </div>
   <div id="pleaseWaitMessage" style="display:none; margin-bottom: 15%; color: #333;">
@@ -175,9 +175,21 @@
 
 </div>
     <script>
-        function showPleaseWait() {
-            document.getElementById("pleaseWaitMessage").style.display = "block";
-        }
+        function validateAndSubmit() {
+    const form = document.getElementById('infoForm');
+    const pleaseWaitMessage = document.getElementById('pleaseWaitMessage');
+
+    // Check if all fields are filled
+    if (form.checkValidity()) {
+      // Show the 'Please wait...' message
+      pleaseWaitMessage.style.display = 'block';
+      return true; // Allow the form to be submitted
+    } else {
+      // If any field is not filled, the form won't be submitted
+      pleaseWaitMessage.style.display = 'none';
+      return false; // Prevent the form from being submitted
+    }
+  }
     </script>
 </body>
 </html>
