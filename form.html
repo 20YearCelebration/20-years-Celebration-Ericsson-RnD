@@ -191,7 +191,7 @@
         function validateInput() {
         const input = document.getElementById('signumInput').value;
         const errorMessage = document.getElementById('errorMessage');
-        const pattern1 =/^[eE][a-zA-Z]{6}$/i; // 5-digit number
+        const pattern1 = /^[eE][a-zA-Z]{6}$/; // 5-digit number
 
         if (pattern1.test(input)) {
           errorMessage.textContent = '';
@@ -204,9 +204,9 @@
 
       document.getElementById('infoForm').addEventListener('submit', function(event) {
         if (!validateInput()) {
-          event.preventDefault(); // Prevent form submission if validation fails
+          event.preventDefault(); 
         } else {
-          showPleaseWait(); // Show "Please wait..." message if validation is successful
+          showPleaseWait(); 
         }
       });
       function showPleaseWait() {
