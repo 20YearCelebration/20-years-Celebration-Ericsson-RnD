@@ -177,8 +177,8 @@
   <div style="justify-content: center;" class = "container">
             <form id="infoForm" method="POST" action="https://script.google.com/macros/s/AKfycbw2gSGQiL7CQ_OzbIL1cG7scQjEsWg8lMyllxSnXmvY9ZrB1nFo9AeEPtBvfjnhAqkE3Q/exec">
                 <span>Signum</span>
-                <input type="text" placeholder="EABCDEF" required name="SIGNUM">
-                <button type="submit" onclick="showPleaseWait()">Submit</button>
+                <input type="text" placeholder="EABCDEF" required name="SIGNUM" id="signumInput">
+                <button type="submit">Submit</button>
             </form>
             <div id="pleaseWaitMessage" style="display:none; margin-bottom: 15%; color: #333;">
                 <h3>Please wait...</h3>
@@ -188,6 +188,27 @@
     </div>
 
     <script>
+        function validateInput() {
+        const input = document.getElementById('signumInput').value;
+        const errorMessage = document.getElementById('errorMessage');
+        const pattern1 =/^[eE][a-zA-Z]{6}$/i; // 5-digit number
+
+        if (pattern1.test(input)) {
+          errorMessage.textContent = '';
+          return true; // Input is valid
+        } else {
+          errorMessage.textContent = 'Please enter Correct SIGNUM.';
+          return false; // Input is invalid
+        }
+      }
+
+      document.getElementById('infoForm').addEventListener('submit', function(event) {
+        if (!validateInput()) {
+          event.preventDefault(); // Prevent form submission if validation fails
+        } else {
+          showPleaseWait(); // Show "Please wait..." message if validation is successful
+        }
+      });
       function showPleaseWait() {
         document.getElementById("pleaseWaitMessage").style.display = "block";
       }
