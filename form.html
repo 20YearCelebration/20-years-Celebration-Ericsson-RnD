@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R&D Gurgaon 20 years</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         // Hilda Font
         @font-face {
@@ -127,44 +126,55 @@
         header {
             text-align: center;
         }
-        .form-control {
-            width: 50%;
+        input[type="text"] {
+            width: 70%;
             padding: 12px;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 6px;
-            font-size: 18px;
+            font-size: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         button {
-            width: 70%;
+            width: 55%;
             padding: 12px;
             background-color: #4CAF50;
             border: none;
             border-radius: 6px;
-            margin-bottom: -5%;
+            margin-top: 5%;
             color: white;
             font-size: 18px;
         }
+        .container span {
+            width: 50%;
+            text-align: right;
+            padding-right: 10px;
+            box-sizing: border-box;
+            font-size: 20px
+        }
+
+        .container input {
+            width: 70%;
+            padding: 5px;
+            box-sizing: border-box;
+            margin-top: 10%;
+        }
+
     </style>
 </head>
 <body>
-    <div style=" margin: 0; margin: 0% 5% 0% 5%; text-align: center;">
+    <div style=" margin: 0; margin: 10% 5% 10% 5%; text-align: center;">
         <img src="app banner 1.png" width="85%">
     </div>
     <div class="form-container" >
     <div class="header" style = "text-align: center";>
       <h3>R&D GURGAON <br> 20 YEARS</h3>
    <div>
-  <div style="justify-content: center;">
-    <form id="infoForm" method="POST" action="https://script.google.com/macros/s/AKfycbw2gSGQiL7CQ_OzbIL1cG7scQjEsWg8lMyllxSnXmvY9ZrB1nFo9AeEPtBvfjnhAqkE3Q/exec" style="width: 100%; max-width: 600px;">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">EGIL</span>
-            </div>
-            <input id="EGIL"  class="form-control w-50" id="inlineFormInputGroup" style="width: 50%;" placeholder="" required>
-        </div>        
-    <button type="submit" onclick="showPleaseWait()" style="width: 100%;">Submit</button>
+  <div style="justify-content: center;" class = "container">
+  <form id="infoForm" method="POST" action="https://script.google.com/macros/s/AKfycbw2gSGQiL7CQ_OzbIL1cG7scQjEsWg8lMyllxSnXmvY9ZrB1nFo9AeEPtBvfjnhAqkE3Q/exec" style="width: 100%; max-width: 600px;">
+    <span>EGIL</span>
+        <input type="text" placeholder="" required name = "EGIL">
+    <button type="submit" onclick="showPleaseWait()">Submit</button>
   </form>
 </div>
   <div id="pleaseWaitMessage" style="display:none; margin-bottom: 15%; color: #333;">
@@ -174,21 +184,9 @@
 
 </div>
     <script>
-        function validateAndSubmit() {
-    const form = document.getElementById('infoForm');
-    const pleaseWaitMessage = document.getElementById('pleaseWaitMessage');
-
-    // Check if all fields are filled
-    if (form.checkValidity()) {
-      // Show the 'Please wait...' message
-      pleaseWaitMessage.style.display = 'block';
-      return true; // Allow the form to be submitted
-    } else {
-      // If any field is not filled, the form won't be submitted
-      pleaseWaitMessage.style.display = 'none';
-      return false; // Prevent the form from being submitted
-    }
-  }
+        function showPleaseWait() {
+            document.getElementById("pleaseWaitMessage").style.display = "block";
+        }
     </script>
 </body>
 </html>
