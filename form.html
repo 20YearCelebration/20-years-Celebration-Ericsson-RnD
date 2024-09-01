@@ -161,7 +161,7 @@
         }
         .error-message {
         color: red;
-        font-size: 14px;
+        font-size: 20px;
       }
 
     </style>
@@ -180,7 +180,7 @@
                 <input type="text" placeholder="12345" required name="EGIL" id="egilInput">
                 <button type="submit" onclick="showPleaseWait()">Submit</button>
             </form>
-            <div id="pleaseWaitMessage">
+            <div id="pleaseWaitMessage" style="display:none; margin-bottom: 15%; color: #333;">
                 <h3>Please wait...</h3>
             </div>
             <div class="error-message" id="errorMessage"></div>
