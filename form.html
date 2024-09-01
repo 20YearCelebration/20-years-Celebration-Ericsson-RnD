@@ -188,28 +188,28 @@
     </div>
 
     <script>
-      function validateInput() {
-        const input = document.getElementById('egilInput').value;
-        const errorMessage = document.getElementById('errorMessage');
-        const pattern1 = /^\d{5}$/; // 5-digit number
-        const pattern2 = /^EGIL\d{5}$/; // EGIL followed by 5 digits
+      // function validateInput() {
+      //   const input = document.getElementById('egilInput').value;
+      //   const errorMessage = document.getElementById('errorMessage');
+      //   const pattern1 = /^\d{5}$/; // 5-digit number
+      //   const pattern2 = /^EGIL\d{5}$/; // EGIL followed by 5 digits
 
-        if (pattern1.test(input) || pattern2.test(input)) {
-          errorMessage.textContent = '';
-          return true; // Input is valid
-        } else {
-          errorMessage.textContent = 'Please enter either a 5-digit number or EGIL followed by 5 digits.';
-          return false; // Input is invalid
-        }
-      }
+      //   if (pattern1.test(input) || pattern2.test(input)) {
+      //     errorMessage.textContent = '';
+      //     return true; // Input is valid
+      //   } else {
+      //     errorMessage.textContent = 'Please enter either a 5-digit number or EGIL followed by 5 digits.';
+      //     return false; // Input is invalid
+      //   }
+      // }
 
-      document.getElementById('infoForm').addEventListener('submit', function(event) {
-        if (!validateInput()) {
-          event.preventDefault(); // Prevent form submission if validation fails
-        } else {
-          showPleaseWait(); // Show "Please wait..." message if validation is successful
-        }
-      });
+      // document.getElementById('infoForm').addEventListener('submit', function(event) {
+      //   if (!validateInput()) {
+      //     event.preventDefault(); // Prevent form submission if validation fails
+      //   } else {
+      //     showPleaseWait(); // Show "Please wait..." message if validation is successful
+      //   }
+      // });
 
       function showPleaseWait() {
         document.getElementById("pleaseWaitMessage").style.display = "block";
